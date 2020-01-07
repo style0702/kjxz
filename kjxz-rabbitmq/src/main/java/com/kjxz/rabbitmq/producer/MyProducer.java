@@ -46,7 +46,7 @@ public class MyProducer {
             }
 
             if(!b){
-                log.info("消息发送失败");
+                System.out.println("消息发送失败：");
             }
 
         }

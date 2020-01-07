@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: kjxz-eureka
+eureka:
+  instance:
+    hostname: e1
+    preferIpAddress: false
+  client:
+    service-url:
+
+    #告诉别人用这个地址来注册  自己的注册路径默认就是http://e1:8000/eureka
+    #注册到其它服务器上面
+      defaultZone: http://e1:8000/eureka
+    #是否自己去注册到服务端
+    register-with-eureka: false
+    #数据是否同步
+    fetch-registry: false
+server:
+  port: 8000

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.kjxz.coupon.dao.CouponTemplateMapper" >
+  <resultMap id="BaseResultMap" type="cn.kjxz.coupon.entity.CouponTemplate" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="c_id" property="cId" jdbcType="VARCHAR" />
+    <result column="c_category" property="cCategory" jdbcType="CHAR" />
+    <result column="c_expire_type" property="cExpireType" jdbcType="CHAR" />
+    <result column="c_expire_day" property="cExpireDay" jdbcType="INTEGER" />
+    <result column="c_create_time" property="cCreateTime" jdbcType="TIMESTAMP" />
+    <result column="c_consume_status" property="cConsumeStatus" jdbcType="CHAR" />
+    <result column="c_merchant_id" property="cMerchantId" jdbcType="VARCHAR" />
+    <result column="c_merchant_name" property="cMerchantName" jdbcType="VARCHAR" />
+    <result column="c_logo" property="cLogo" jdbcType="VARCHAR" />
+    <result column="c_desc" property="cDesc" jdbcType="VARCHAR" />
+    <result column="c_product_line" property="cProductLine" jdbcType="VARCHAR" />
+    <result column="c_area_id" property="cAreaId" jdbcType="VARCHAR" />
+    <result column="c_limiter" property="cLimiter" jdbcType="INTEGER" />
+    <result column="c_count" property="cCount" jdbcType="INTEGER" />
+    <result column="c_amount" property="cAmount" jdbcType="DOUBLE" />
+    <result column="c_amount_limit" property="cAmountLimit" jdbcType="INTEGER" />
+    <result column="c_link_url" property="cLinkUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, c_id, c_category, c_expire_type, c_expire_day, c_create_time, c_consume_status, 
+    c_merchant_id, c_merchant_name, c_logo, c_desc, c_product_line, c_area_id, c_limiter, 
+    c_count, c_amount, c_amount_limit, c_link_url
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from c_coupon_template
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from c_coupon_template
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.kjxz.coupon.entity.CouponTemplate" >
+    insert into c_coupon_template (id, c_id, c_category, 
+      c_expire_type, c_expire_day, c_create_time, 
+      c_consume_status, c_merchant_id, c_merchant_name, 
+      c_logo, c_desc, c_product_line, 
+      c_area_id, c_limiter, c_count, 
+      c_amount, c_amount_limit, c_link_url
+      )
+    values (#{id,jdbcType=INTEGER}, #{cId,jdbcType=VARCHAR}, #{cCategory,jdbcType=CHAR}, 
+      #{cExpireType,jdbcType=CHAR}, #{cExpireDay,jdbcType=INTEGER}, #{cCreateTime,jdbcType=TIMESTAMP}, 
+      #{cConsumeStatus,jdbcType=CHAR}, #{cMerchantId,jdbcType=VARCHAR}, #{cMerchantName,jdbcType=VARCHAR}, 
+      #{cLogo,jdbcType=VARCHAR}, #{cDesc,jdbcType=VARCHAR}, #{cProductLine,jdbcType=VARCHAR}, 
+      #{cAreaId,jdbcType=VARCHAR}, #{cLimiter,jdbcType=INTEGER}, #{cCount,jdbcType=INTEGER}, 
+      #{cAmount,jdbcType=DOUBLE}, #{cAmountLimit,jdbcType=INTEGER}, #{cLinkUrl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.kjxz.coupon.entity.CouponTemplate" >
+    insert into c_coupon_template
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cId != null" >
+        c_id,
+      </if>
+      <if test="cCategory != null" >
+        c_category,
+      </if>
+      <if test="cExpireType != null" >
+        c_expire_type,
+      </if>
+      <if test="cExpireDay != null" >
+        c_expire_day,
+      </if>
+      <if test="cCreateTime != null" >
+        c_create_time,
+      </if>
+      <if test="cConsumeStatus != null" >
+        c_consume_status,
+      </if>
+      <if test="cMerchantId != null" >
+        c_merchant_id,
+      </if>
+      <if test="cMerchantName != null" >
+        c_merchant_name,
+      </if>
+      <if test="cLogo != null" >
+        c_logo,
+      </if>
+      <if test="cDesc != null" >
+        c_desc,
+      </if>
+      <if test="cProductLine != null" >
+        c_product_line,
+      </if>
+      <if test="cAreaId != null" >
+        c_area_id,
+      </if>
+      <if test="cLimiter != null" >
+        c_limiter,
+      </if>
+      <if test="cCount != null" >
+        c_count,
+      </if>
+      <if test="cAmount != null" >
+        c_amount,
+      </if>
+      <if test="cAmountLimit != null" >
+        c_amount_limit,
+      </if>
+      <if test="cLinkUrl != null" >
+        c_link_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cId != null" >
+        #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cCategory != null" >
+        #{cCategory,jdbcType=CHAR},
+      </if>
+      <if test="cExpireType != null" >
+        #{cExpireType,jdbcType=CHAR},
+      </if>
+      <if test="cExpireDay != null" >
+        #{cExpireDay,jdbcType=INTEGER},
+      </if>
+      <if test="cCreateTime != null" >
+        #{cCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cConsumeStatus != null" >
+        #{cConsumeStatus,jdbcType=CHAR},
+      </if>
+      <if test="cMerchantId != null" >
+        #{cMerchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="cMerchantName != null" >
+        #{cMerchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="cLogo != null" >
+        #{cLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="cDesc != null" >
+        #{cDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="cProductLine != null" >
+        #{cProductLine,jdbcType=VARCHAR},
+      </if>
+      <if test="cAreaId != null" >
+        #{cAreaId,jdbcType=VARCHAR},
+      </if>
+      <if test="cLimiter != null" >
+        #{cLimiter,jdbcType=INTEGER},
+      </if>
+      <if test="cCount != null" >
+        #{cCount,jdbcType=INTEGER},
+      </if>
+      <if test="cAmount != null" >
+        #{cAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="cAmountLimit != null" >
+        #{cAmountLimit,jdbcType=INTEGER},
+      </if>
+      <if test="cLinkUrl != null" >
+        #{cLinkUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.kjxz.coupon.entity.CouponTemplate" >
+    update c_coupon_template
+    <set >
+      <if test="cId != null" >
+        c_id = #{cId,jdbcType=VARCHAR},
+      </if>
+      <if test="cCategory != null" >
+        c_category = #{cCategory,jdbcType=CHAR},
+      </if>
+      <if test="cExpireType != null" >
+        c_expire_type = #{cExpireType,jdbcType=CHAR},
+      </if>
+      <if test="cExpireDay != null" >
+        c_expire_day = #{cExpireDay,jdbcType=INTEGER},
+      </if>
+      <if test="cCreateTime != null" >
+        c_create_time = #{cCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cConsumeStatus != null" >
+        c_consume_status = #{cConsumeStatus,jdbcType=CHAR},
+      </if>
+      <if test="cMerchantId != null" >
+        c_merchant_id = #{cMerchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="cMerchantName != null" >
+        c_merchant_name = #{cMerchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="cLogo != null" >
+        c_logo = #{cLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="cDesc != null" >
+        c_desc = #{cDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="cProductLine != null" >
+        c_product_line = #{cProductLine,jdbcType=VARCHAR},
+      </if>
+      <if test="cAreaId != null" >
+        c_area_id = #{cAreaId,jdbcType=VARCHAR},
+      </if>
+      <if test="cLimiter != null" >
+        c_limiter = #{cLimiter,jdbcType=INTEGER},
+      </if>
+      <if test="cCount != null" >
+        c_count = #{cCount,jdbcType=INTEGER},
+      </if>
+      <if test="cAmount != null" >
+        c_amount = #{cAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="cAmountLimit != null" >
+        c_amount_limit = #{cAmountLimit,jdbcType=INTEGER},
+      </if>
+      <if test="cLinkUrl != null" >
+        c_link_url = #{cLinkUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.kjxz.coupon.entity.CouponTemplate" >
+    update c_coupon_template
+    set c_id = #{cId,jdbcType=VARCHAR},
+      c_category = #{cCategory,jdbcType=CHAR},
+      c_expire_type = #{cExpireType,jdbcType=CHAR},
+      c_expire_day = #{cExpireDay,jdbcType=INTEGER},
+      c_create_time = #{cCreateTime,jdbcType=TIMESTAMP},
+      c_consume_status = #{cConsumeStatus,jdbcType=CHAR},
+      c_merchant_id = #{cMerchantId,jdbcType=VARCHAR},
+      c_merchant_name = #{cMerchantName,jdbcType=VARCHAR},
+      c_logo = #{cLogo,jdbcType=VARCHAR},
+      c_desc = #{cDesc,jdbcType=VARCHAR},
+      c_product_line = #{cProductLine,jdbcType=VARCHAR},
+      c_area_id = #{cAreaId,jdbcType=VARCHAR},
+      c_limiter = #{cLimiter,jdbcType=INTEGER},
+      c_count = #{cCount,jdbcType=INTEGER},
+      c_amount = #{cAmount,jdbcType=DOUBLE},
+      c_amount_limit = #{cAmountLimit,jdbcType=INTEGER},
+      c_link_url = #{cLinkUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,12 @@
+cn\kjxz\exception\GlobalExceptionHandler.class
+cn\kjxz\config\AsyncPoolConfig$MyAsyncExceptionHandler.class
+cn\kjxz\config\JacksonConfig$1.class
+cn\kjxz\config\SwaggerConfig.class
+cn\kjxz\service\impl\MailServiceImpl.class
+cn\kjxz\config\SchedulerThreadPoolConfig.class
+cn\kjxz\common\ResultEnum.class
+cn\kjxz\config\AsyncPoolConfig.class
+cn\kjxz\service\MailService.class
+cn\kjxz\config\JacksonConfig.class
+cn\kjxz\common\ResultResponse.class
+cn\kjxz\exception\GlobalException.class

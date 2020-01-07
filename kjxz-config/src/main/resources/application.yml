@@ -1,0 +1,22 @@
+server:
+  port: 9900
+
+spring:
+  application:
+    name: kjxz-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/style0702/kjxz.git
+          username: 741342811@qq.com
+          password: 741342811chen...
+          basedir: F:\config
+
+eureka:
+  instance:
+    hostname: config
+  client:
+    service-url:
+      #指定要去注册的地址
+      defaultZone: http://e1:8000/eureka,http://e2:8001/eureka

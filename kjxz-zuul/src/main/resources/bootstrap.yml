@@ -1,0 +1,21 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: order
+  cloud:
+    config:
+      discovery:
+        #开启客户端 获取配置信息
+        enabled: true
+        #服务端应用名（就是config在eureka注册的服务名）
+        service-id: kjxz-config
+      profile: dev
+eureka:
+  instance:
+    hostname: zuul
+  client:
+    service-url:
+      #指定要去注册的地址
+      defaultZone: http://e1:8000/eureka,http://e2:8001/eureka
+
